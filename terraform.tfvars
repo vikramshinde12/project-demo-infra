@@ -1,0 +1,5 @@
+project_id = "absolute-water-300415"
+region = "europe-west2"
+zone = "europe-west2-a"
+composer_environment_name = "my-composer-env"
+cloud_composer_service_account = "composer-env-account"
