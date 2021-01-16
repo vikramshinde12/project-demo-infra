@@ -40,3 +40,9 @@ variable "repo_owner" {
   type        = string
   description = "The Owner of the GitHub repository for Cloud Build Trigger."
 }
+
+
+variable "slack_webhook_url" {
+  type        = string
+  description = "The Slack Webhook URL"
+}

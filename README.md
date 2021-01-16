@@ -1,10 +1,12 @@
 # project-demo-infra
 The repository is for sample infrastructure. 
 
-1. Create Infrastructure using Terraform
-2. Create Project
-3. Create SA, Assign the roles: Editor and download key as terraform.json
-4. Create a bucket for Terraform state 
+## Create Infrastructure using Terraform
+
+1. Create Project
+2. Create SA, Assign the roles: Editor and download key as terraform.json
+3. Create a bucket for Terraform state
+4. Create Slack Webhook URL   
 5. Update the configfile as per environment
 
 ```

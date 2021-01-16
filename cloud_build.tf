@@ -10,8 +10,8 @@ resource "google_project_service" "build" {
 }
 
 resource "google_cloudbuild_trigger" "cloud_build_trigger" {
-  provider = google-beta
-  name     = "cloud-composer-trigger"
+  provider    = google-beta
+  name        = "cloud-composer-trigger"
   description = "The Cloud Composer Trigger on GitHub, Push to master branch"
 
   github {
