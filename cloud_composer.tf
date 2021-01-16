@@ -7,7 +7,7 @@
 #----------------------------------------------------------------------------------------------
 
 resource "google_project_service" "composer" {
-  service = "composer.googleapis.com"
+  service            = "composer.googleapis.com"
   disable_on_destroy = false
 }
 
@@ -22,7 +22,8 @@ resource "google_project_iam_member" "composer-worker" {
 }
 
 resource "google_composer_environment" "environment" {
-  name     = var.composer_environment_name
+  name   = var.composer_environment_name
+  region = var.region
 
   config {
     node_config {
