@@ -27,7 +27,7 @@ variable "cloud_composer_service_account" {
 variable "composer_repository_name" {
   type        = string
   description = "The GitHub repository of Composer source code"
-  default     = "project1_composer"
+  default     = "project-demo-code"
 }
 
 variable "composer_branch_name" {
