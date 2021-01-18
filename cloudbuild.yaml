@@ -16,8 +16,8 @@ steps:
       - '-c'
       - |
         terraform init
-        terraform workspace select $BRANCH_NAME
-        echo "workspace selected"
+        terraform workspace select $BRANCH_NAME || terraform workspace new $BRANCH_NAME
+        echo "workspace selected $BRANCH_NAME"
         terraform state list
 
   - id: 'terraform validate'
@@ -27,7 +27,7 @@ steps:
       - '-c'
       - |
         terraform workspace select $BRANCH_NAME
-        echo "workspace selected"
+        echo "workspace selected $BRANCH_NAME"
         terraform validate
 
   - id: 'terraform plan'
@@ -37,7 +37,7 @@ steps:
       - '-c'
       - |
         terraform workspace select $BRANCH_NAME
-        echo "workspace selected"
+        echo "workspace selected $BRANCH_NAME"
         terraform plan
 
   - id: 'terraform apply'
@@ -47,5 +47,5 @@ steps:
       - '-c'
       - |
         terraform workspace select $BRANCH_NAME
-        echo "workspace selected"
+        echo "workspace selected $BRANCH_NAME"
         terraform apply -auto-approve
