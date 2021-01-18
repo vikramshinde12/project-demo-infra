@@ -1,5 +1,5 @@
 resource "google_storage_bucket" "bucket" {
-  name = "${var.project_id}-source-bucket"
+  name = "${var.projects[terraform.workspace]}-source-bucket"
 }
 
 resource "google_storage_bucket_object" "archive" {

@@ -1,7 +1,7 @@
-variable "project_id" {
-  type        = string
-  description = "The Google Cloud Project Id"
-}
+//variable "project_id" {
+//  type        = string
+//  description = "The Google Cloud Project Id"
+//}
 
 variable "region" {
   type    = string
@@ -45,4 +45,14 @@ variable "repo_owner" {
 variable "slack_webhook_url" {
   type        = string
   description = "The Slack Webhook URL"
+}
+
+variable "projects" {
+  type = map(string)
+
+  default = {
+    dev = "absolute-water-300415"
+    test = "project1-test-301712"
+    prod = "prod"
+  }
 }

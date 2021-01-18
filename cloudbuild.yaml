@@ -8,3 +8,14 @@ steps:
         echo "*******************"
         echo "$BRANCH_NAME"
         echo "*******************"
+
+  - id: 'terraform init'
+    name: 'hashicorp/terraform:0.13.3'
+    entrypoint: 'sh'
+    args:
+      - '-c'
+      - |
+        terraform init
+        terraform workspace select $BRANCH_NAME
+        echo "workspace selected"
+        terraform state list
