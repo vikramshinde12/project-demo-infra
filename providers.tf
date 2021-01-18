@@ -4,6 +4,6 @@ provider "google" {
 }
 
 provider "google-beta" {
-  project =  var.projects[terraform.workspace]
+  project = var.projects[terraform.workspace]
   region  = var.region
 }

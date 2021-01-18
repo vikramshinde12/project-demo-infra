@@ -31,10 +31,10 @@ variable "composer_repository_name" {
 }
 
 variable "composer_branch_name" {
-  type        = string
+  type        = map(string)
   description = "The Branch for Cloud Build Trigger."
-    default = {
-    dev = "dev"
+  default = {
+    dev  = "dev"
     test = "test"
     prod = "master"
   }
@@ -55,7 +55,7 @@ variable "projects" {
   type = map(string)
 
   default = {
-    dev = "absolute-water-300415"
+    dev  = "absolute-water-300415"
     test = "project-cit-302117"
     prod = "prod"
   }
