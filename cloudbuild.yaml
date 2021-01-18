@@ -19,3 +19,13 @@ steps:
         terraform workspace select $BRANCH_NAME
         echo "workspace selected"
         terraform state list
+
+  - id: 'terraform plan'
+    name: 'hashicorp/terraform:0.13.3'
+    entrypoint: 'sh'
+    args:
+      - '-c'
+      - |
+        terraform workspace select $BRANCH_NAME
+        echo "workspace selected"
+        terraform plan
