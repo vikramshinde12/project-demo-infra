@@ -20,6 +20,16 @@ steps:
         echo "workspace selected"
         terraform state list
 
+  - id: 'terraform validate'
+    name: 'hashicorp/terraform:0.13.3'
+    entrypoint: 'sh'
+    args:
+      - '-c'
+      - |
+        terraform workspace select $BRANCH_NAME
+        echo "workspace selected"
+        terraform validate
+
   - id: 'terraform plan'
     name: 'hashicorp/terraform:0.13.3'
     entrypoint: 'sh'
@@ -29,3 +39,13 @@ steps:
         terraform workspace select $BRANCH_NAME
         echo "workspace selected"
         terraform plan
+
+  - id: 'terraform apply'
+    name: 'hashicorp/terraform:0.13.3'
+    entrypoint: 'sh'
+    args:
+      - '-c'
+      - |
+        terraform workspace select $BRANCH_NAME
+        echo "workspace selected"
+        terraform apply -auto-approve
