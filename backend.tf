@@ -1,7 +1,6 @@
 terraform {
   backend "gcs" {
-    bucket = "project1-service-states"
-    credentials = "~/credentials/infra-terraform.json"
+    bucket = "project1-service-tfstate"
     prefix = "project1/"
   }
 }
