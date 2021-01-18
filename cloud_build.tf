@@ -18,7 +18,7 @@ resource "google_cloudbuild_trigger" "cloud_build_trigger" {
     owner = var.repo_owner
     name  = var.composer_repository_name
     push {
-      branch = var.composer_branch_name
+      branch = var.composer_branch_name[terraform.workspace]
     }
   }
 

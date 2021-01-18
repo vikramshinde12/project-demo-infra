@@ -33,7 +33,11 @@ variable "composer_repository_name" {
 variable "composer_branch_name" {
   type        = string
   description = "The Branch for Cloud Build Trigger."
-  default     = "master"
+    default = {
+    dev = "dev"
+    test = "test"
+    prod = "master"
+  }
 }
 
 variable "repo_owner" {
@@ -52,7 +56,7 @@ variable "projects" {
 
   default = {
     dev = "absolute-water-300415"
-    test = "project1-test-301712"
+    test = "project-cit-302117"
     prod = "prod"
   }
 }
