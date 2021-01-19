@@ -35,7 +35,7 @@ variable "composer_branch_name" {
   description = "The Branch for Cloud Build Trigger."
   default = {
     dev  = "dev"
-    test = "test"
+    sit = "sit"
     prod = "master"
   }
 }
@@ -56,7 +56,7 @@ variable "projects" {
 
   default = {
     dev  = "absolute-water-300415"
-    test = "project-cit-302117"
+    sit = "project2-sit"
     prod = "prod"
   }
 }
