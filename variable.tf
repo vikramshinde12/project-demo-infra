@@ -36,6 +36,7 @@ variable "composer_branch_name" {
   default = {
     dev  = "dev"
     test = "test"
+    uat  = "uat"
     prod = "master"
   }
 }
@@ -57,6 +58,7 @@ variable "projects" {
   default = {
     dev  = "absolute-water-300415"
     test = "project-cit-302117"
+    uat  = "project-uat-302217"
     prod = "prod"
   }
 }
