@@ -2,6 +2,7 @@
 #  CLOUD BUILD
 #      - Enable Cloud Build API
 #      - Create Cloud Build Trigger for Cloud Composer
+#      - Assigned composer.admin role to Cloud Build service account
 #----------------------------------------------------------------------------------------------
 
 resource "google_project_service" "build" {
@@ -31,4 +32,12 @@ resource "google_cloudbuild_trigger" "cloud_build_trigger" {
   }
 
   depends_on = [google_project_service.build]
+}
+
+data "google_project" "project" {
+}
+
+resource "google_project_iam_binding" "binding" {
+  members = ["serviceAccount:${data.google_project.project.number}@cloudbuild.gserviceaccount.com"]
+  role = "roles/composer.admin"
 }
