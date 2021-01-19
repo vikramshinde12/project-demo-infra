@@ -1,7 +1,0 @@
-project_id                     = "test-project"
-region                         = "europe-west2"
-zone                           = "europe-west2-a"
-composer_environment_name      = "my-composer-env"
-cloud_composer_service_account = "composer-env-account"
-composer_repository_name       = "project-demo-code"
-repo_owner                     = "vikramshinde12"

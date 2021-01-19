@@ -11,14 +11,14 @@ resource "google_project_service" "build" {
 
 resource "google_cloudbuild_trigger" "cloud_build_trigger" {
   provider    = google-beta
-  name        = "cloud-composer-trigger"
-  description = "The Cloud Composer Trigger on GitHub, Push to master branch"
+  name        = "cloud-build-trigger"
+  description = "The Cloud Build Trigger based on Source code repo"
 
   github {
     owner = var.repo_owner
     name  = var.composer_repository_name
     push {
-      branch = var.composer_branch_name
+      branch = var.composer_branch_name[terraform.workspace]
     }
   }
 

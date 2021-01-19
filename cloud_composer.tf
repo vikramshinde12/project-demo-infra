@@ -21,6 +21,11 @@ resource "google_project_iam_member" "composer-worker" {
   member = "serviceAccount:${google_service_account.service_account.email}"
 }
 
+resource "google_project_iam_member" "composer-admin" {
+  role   = "roles/composer.admin"
+  member = "serviceAccount:${google_service_account.service_account.email}"
+}
+
 resource "google_composer_environment" "environment" {
   name   = var.composer_environment_name
   region = var.region

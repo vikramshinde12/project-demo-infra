@@ -1,5 +1,18 @@
+#----------------------------------------------------------------------------------------------
+#  SLACK NOTIFICATION FUNCTIONS
+#      - Enable Cloud Functions API
+#      - Create Cloud Storage bucket for source code
+#      - Copy Source code archive to bucket
+#      - Create Cloud Functions based on source code and trigger from cloud-build pub/sub topic
+#----------------------------------------------------------------------------------------------
+
+resource "google_project_service" "functions" {
+  service            = "cloudfunctions.googleapis.com"
+  disable_on_destroy = false
+}
+
 resource "google_storage_bucket" "bucket" {
-  name = "${var.project_id}-source-bucket"
+  name = "${var.projects[terraform.workspace]}-source-bucket"
 }
 
 resource "google_storage_bucket_object" "archive" {
@@ -23,4 +36,6 @@ resource "google_cloudfunctions_function" "slack-function" {
   environment_variables = {
     SLACK_WEBHOOK_URL = var.slack_webhook_url
   }
+
+  depends_on = [google_project_service.functions]
 }

@@ -1,7 +1,7 @@
-variable "project_id" {
-  type        = string
-  description = "The Google Cloud Project Id"
-}
+//variable "project_id" {
+//  type        = string
+//  description = "The Google Cloud Project Id"
+//}
 
 variable "region" {
   type    = string
@@ -27,13 +27,17 @@ variable "cloud_composer_service_account" {
 variable "composer_repository_name" {
   type        = string
   description = "The GitHub repository of Composer source code"
-  default     = "project1_composer"
+  default     = "project-demo-code"
 }
 
 variable "composer_branch_name" {
-  type        = string
+  type        = map(string)
   description = "The Branch for Cloud Build Trigger."
-  default     = "master"
+  default = {
+    dev  = "dev"
+    test = "test"
+    prod = "master"
+  }
 }
 
 variable "repo_owner" {
@@ -45,4 +49,14 @@ variable "repo_owner" {
 variable "slack_webhook_url" {
   type        = string
   description = "The Slack Webhook URL"
+}
+
+variable "projects" {
+  type = map(string)
+
+  default = {
+    dev  = "absolute-water-300415"
+    test = "project-cit-302117"
+    prod = "prod"
+  }
 }
