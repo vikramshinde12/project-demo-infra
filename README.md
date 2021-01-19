@@ -4,7 +4,7 @@ The repository is for sample infrastructure.
 ## Create Infrastructure using Terraform
 
 1. Create Project
-2. Assign Editor role to <service_project_number>>@cloudbuild.gserviceaccount.com
+2. Assign Editor and Security Admin role to <service_project_number>>@cloudbuild.gserviceaccount.com
 3. Create Slack Webhook URL   
 4. Update the configfile as per environment
 

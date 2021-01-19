@@ -9,10 +9,6 @@ steps:
         echo "$BRANCH_NAME"
         echo "*******************"
 
-  - id: 'creating zip docker image'
-    name: gcr.io/cloud-builders/docker
-    args: ['build', '-t', 'gcr.io/$PROJECT_ID/zip', 'zip/.']
-
   - id: 'terraform init'
     name: 'hashicorp/terraform:0.13.3'
     entrypoint: 'sh'
@@ -53,6 +49,6 @@ steps:
         terraform workspace select $BRANCH_NAME
         echo "workspace selected $BRANCH_NAME"
         terraform apply -auto-approve
-    timeout: 1200s
 
+timeout: 1200s
 images: ['gcr.io/$PROJECT_ID/zip']
