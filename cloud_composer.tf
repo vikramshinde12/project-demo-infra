@@ -36,4 +36,6 @@ resource "google_composer_environment" "environment" {
       service_account = google_service_account.service_account.email
     }
   }
+
+  depends_on = [google_project_service.composer]
 }
