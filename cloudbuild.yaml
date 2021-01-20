@@ -28,6 +28,7 @@ steps:
       - |
         terraform workspace select $BRANCH_NAME
         echo "workspace selected $BRANCH_NAME"
+        terraform init
         terraform validate
 
   - id: 'terraform plan'
@@ -51,4 +52,3 @@ steps:
         terraform apply -auto-approve
 
 timeout: 1200s
-images: ['gcr.io/$PROJECT_ID/zip']
