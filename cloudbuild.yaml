@@ -28,7 +28,6 @@ steps:
       - |
         terraform workspace select $BRANCH_NAME
         echo "workspace selected $BRANCH_NAME"
-        terraform init
         terraform validate
 
   - id: 'terraform plan'
