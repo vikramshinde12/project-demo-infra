@@ -29,6 +29,7 @@ steps:
         terraform workspace select $BRANCH_NAME
         echo "workspace selected $BRANCH_NAME"
         terraform validate
+     waitFor: ['terraform init']
 
   - id: 'terraform plan'
     name: 'hashicorp/terraform:0.13.3'
