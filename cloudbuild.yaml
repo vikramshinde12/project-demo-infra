@@ -18,6 +18,7 @@ steps:
         terraform init -backend-config="encryption_key=$_ENCRYPTION_KEY"
         terraform workspace select $BRANCH_NAME || terraform workspace new $BRANCH_NAME
         echo "workspace selected $BRANCH_NAME"
+        terraform init
         terraform validate
 
   - id: 'terraform plan'
