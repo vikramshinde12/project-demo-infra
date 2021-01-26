@@ -9,26 +9,15 @@ steps:
         echo "$BRANCH_NAME"
         echo "*******************"
 
-  - id: 'terraform init'
+  - id: 'terraform init & validate'
     name: 'hashicorp/terraform:0.13.3'
     entrypoint: 'sh'
     args:
       - '-c'
       - |
-        terraform init
+        terraform init -backend-config="encryption_key=$_ENCRYPTION_KEY"
         terraform workspace select $BRANCH_NAME || terraform workspace new $BRANCH_NAME
         echo "workspace selected $BRANCH_NAME"
-        terraform state list
-
-  - id: 'terraform validate'
-    name: 'hashicorp/terraform:0.13.3'
-    entrypoint: 'sh'
-    args:
-      - '-c'
-      - |
-        terraform workspace select $BRANCH_NAME
-        echo "workspace selected $BRANCH_NAME"
-        terraform init
         terraform validate
 
   - id: 'terraform plan'
