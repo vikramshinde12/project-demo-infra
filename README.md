@@ -1,7 +1,7 @@
 # project-demo-infra
- 
 
-The CICD Infrastructure will be build using CloudBuild
+## The CICD Infrastructure will be build using CloudBuild
+![Architecture](https://github.com/vikramshinde12/project-demo-infra/blob/master/Infra%20Provisioning%20(4).png)
 
 Create GCP Project as Service Project
 
